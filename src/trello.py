@@ -36,7 +36,7 @@ def comment_changeset(ui, repo, hooktype, node=None, source=None, **kwargs):
                     else:
                         bitbUrl = 'No default push path'
 
-                    params = urllib.urlencode({'text' : 'Commited changeset %s (%s)\nby: %s\nbranch: *%s* \n\n%s' % (ctx, ctx.rev(), TRELLO_USER, ctx.branch(), bitbUrl)})
+                    params = urllib.urlencode({'text' : 'Commited changeset %s (%s)\ndescription:%s\nby: %s\nbranch: *%s* \n\n%s' % (ctx, ctx.rev(), desc, TRELLO_USER, ctx.branch(), bitbUrl)})
                     req = urllib2.Request(TRELLO_COMM_URL % (data['id'], TRELLO_KEY, TRELLO_TOK_WRITE), params)
 
                     resp = jsonStr = data = None
